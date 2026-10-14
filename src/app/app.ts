@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('my-ng-project');
+  // יוצרים את הטופס ומגדירים כותרת עם טקסט התחלתי
+  termsForm = new FormGroup({
+    title: new FormControl(''), // ערך התחלתי ריק  
+    isApproved: new FormControl(false),
+  })
 }

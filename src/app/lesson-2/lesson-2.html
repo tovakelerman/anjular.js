@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let item of subjectsList; let i = index">
+    <span class="subject-name">{{ i + 1 }}. {{ item.subjectName }} - mark: {{ item.mark }}</span>
+
+    <!-- בדיקה נפרדת לכל אובייקט -->
+    <span class="pass" *ngIf="isGoodMark(item.mark)">עבר</span>
+    <span class="fail" *ngIf="!isGoodMark(item.mark)">לא עבר</span>
+  </li>
+</ul>
+
+<p class="summary">סכום הציונים: {{ totalMarks() }}</p>

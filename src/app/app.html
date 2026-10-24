@@ -1,14 +1,27 @@
-<h1>כניסה להתקנת תוכנות לימודיות על המחשב</h1>
+<div *ngIf="!isLoggedIn">
+  <h1>כניסה להתקנת תוכנות לימודיות על המחשב</h1>
 
-<form [formGroup]="termsForm">
-  <label for="TZ"> תעודת זהות:</label>
+  <form [formGroup]="termsForm" (ngSubmit)="onSubmit()">
+    <label for="TZ"> תעודת זהות:</label>
 
-  <input id="TZ" type="text" formControlName="title" placeholder="מס' זהות"><br>
+    <input id="TZ" type="text" formControlName="title" placeholder="מס' זהות"><br>
+    <p class="error" *ngIf="termsForm.get('title')?.invalid && termsForm.get('title')?.touched">
+      יש להזין מספר זהות בן 9 ספרות
+    </p>
 
-  <label>
-    <input type="checkbox" formControlName="isApproved">
-    אני מאשר/ת את קריאת התקנון
-  </label><br>
-  <button *ngIf="termsForm.get('isApproved')?.value" type="submit">
-    היכנס </button>
-</form>
+    <label class="checkbox-row">
+      <input type="checkbox" formControlName="isApproved">
+      אני מאשר/ת את קריאת התקנון
+    </label><br>
+    <button *ngIf="termsForm.get('isApproved')?.value" type="submit">
+      היכנס </button>
+  </form>
+</div>
+
+<div *ngIf="isLoggedIn" class="grades-screen">
+  <h1>ציוני מקצועות</h1>
+
+  <app-lesson-2 />
+
+  <button type="button" class="logout" (click)="logout()">יציאה</button>
+</div>

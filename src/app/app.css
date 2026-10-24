@@ -110,3 +110,42 @@ button[type="submit"]:hover {
 button[type="submit"]:active {
   transform: scale(0.99);
 }
+
+/* הודעת שגיאה */
+.error {
+  color: #c0392b;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* מסך הציונים אחרי הכניסה */
+.grades-screen {
+  width: 100%;
+  max-width: 460px;
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(140, 90, 70, 0.08);
+  border: 1px solid #f3d5c8;
+  box-sizing: border-box;
+}
+
+/* כפתור יציאה */
+button.logout {
+  display: block;
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  background-color: transparent;
+  color: #6d5248;
+  border: 1px solid #dcd0cb;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button.logout:hover {
+  background-color: #faf6f5;
+}
